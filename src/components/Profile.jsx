@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useAuth } from "../context/Auth";
 import { storage } from "../services/firebase";
 
-export const Profile = () => {
+export default function Profile() {
   const { currentUser, updatePhoto } = useAuth();
   const [image, setImage] = useState();
   const [showImgModal, setShowImgModal] = useState(false);
@@ -153,4 +153,4 @@ export const Profile = () => {
       </div>
     </>
   );
-};
+}

@@ -1,7 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Button, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
-export const GameList = () => {
+export default function GameList() {
   return (
     <>
       <div className="mt-5">
@@ -10,20 +11,13 @@ export const GameList = () => {
             <div className="text-center pb-4">
               <h3>Game List</h3>
             </div>
-            <div>
-              <ul>
-                <li>
-                  ROCK PAPER SCISSOR
-                </li>
-              </ul>
-            </div>
             <div className="text-center" style={{ paddingBottom: 23 }}>
-              <OverlayTrigger
-                placement="left-start"
-                overlay={<Tooltip>Rock Paper Scissors!</Tooltip>}
-              >
-                <img src="/rps.png" alt="" width="200" />
-              </OverlayTrigger>
+              <Image
+                src="/rps.png"
+                alt="rock paper scissors img"
+                width={200}
+                height={200}
+              />
             </div>
 
             <div className="pt-3 d-grid">
@@ -36,4 +30,4 @@ export const GameList = () => {
       </div>
     </>
   );
-};
+}

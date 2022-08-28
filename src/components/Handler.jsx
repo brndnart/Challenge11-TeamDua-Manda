@@ -12,9 +12,10 @@ import {
   getDocs,
 } from "firebase/firestore";
 import { useAuth } from "../context/Auth";
-import { Tables } from "./";
+import Tables from "./Tables";
+import Image from "next/image";
 
-export const Handler = () => {
+export default function Handler() {
   const [result, setResult] = useState("");
   const { currentUser } = useAuth();
   const [leaderboards, setLeaderboards] = useState([]);
@@ -126,30 +127,33 @@ export const Handler = () => {
         <div className="col offset-2">
           <h3>PLAYER</h3>
           <br />
-          <img
+          <Image
             src="/batu.png"
             alt=""
             width="100"
+            height={100}
             className="hand-animate"
             onClick={() => playGame("Rock")}
           />
           <br />
           <br />
           <br />
-          <img
+          <Image
             src="/gunting.png"
             alt=""
             width="100"
+            height={100}
             className="hand-animate"
             onClick={() => playGame("Paper")}
           />
           <br />
           <br />
           <br />
-          <img
+          <Image
             src="/kertas.png"
             alt=""
             width="100"
+            height={100}
             className="hand-animate"
             onClick={() => playGame("Scissors")}
           />
@@ -157,10 +161,11 @@ export const Handler = () => {
 
         <div className="col pt-5">
           <h1 style={{ paddingTop: 130 }}>{result}</h1>
-          <img
+          <Image
             src="/refresh.png"
             alt=""
             width="85"
+            height={85}
             style={{ paddingTop: 60, paddingLeft: 20 }}
             onClick={resetGame}
           />
@@ -168,18 +173,18 @@ export const Handler = () => {
         <div className="col">
           <h3 className="ps-3">COM</h3>
           <br />
-          <img src="/batu.png" alt="" width="100" />
+          <Image src="/batu.png" alt="" width="100" height={100} />
           <br />
           <br />
           <br />
-          <img src="/gunting.png" alt="" width="100" />
+          <Image src="/gunting.png" alt="" width="100" height={100} />
           <br />
           <br />
           <br />
-          <img src="/kertas.png" alt="" width="100" />
+          <Image src="/kertas.png" alt="" width="100" height={100} />
         </div>
       </div>
       <Tables leaderboards={leaderboards} />
     </>
   );
-};
+}

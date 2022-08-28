@@ -2,7 +2,7 @@ import { Button, Container } from "react-bootstrap";
 import Link from "next/link";
 import { logoutInitiate } from "../redux/action";
 
-export const Nav = () => {
+export default function Nav() {
   const { logout } = logoutInitiate();
 
   return (
@@ -25,4 +25,4 @@ export const Nav = () => {
       </Container>
     </>
   );
-};
+}

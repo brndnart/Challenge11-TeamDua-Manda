@@ -1,5 +1,6 @@
 import { Container } from "react-bootstrap";
-import { Nav, Handler } from "../components";
+import Nav from "../components/Nav";
+import Handler from "../components/Handler";
 
 export default function Rps() {
   return (

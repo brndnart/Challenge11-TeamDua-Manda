@@ -1,6 +1,6 @@
 import { Table } from "react-bootstrap";
 
-export const Tables = ({ leaderboards }) => {
+export default function Tables({ leaderboards }) {
   return (
     <>
       <div className="row pt-5 pb-5">
@@ -32,4 +32,4 @@ export const Tables = ({ leaderboards }) => {
       </div>
     </>
   );
-};
+}

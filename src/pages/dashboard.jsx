@@ -1,5 +1,7 @@
 import { Container } from "react-bootstrap";
-import { Profile, GameList, Nav } from "../components";
+import Profile from "../components/Profile";
+import GameList from "../components/GameList";
+import Nav from "../components/Nav";
 
 export default function Dashboard() {
   return (
