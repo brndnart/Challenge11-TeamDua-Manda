@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import 'video-react/dist/video-react.css';
+import 'node_modules/video-react/dist/video-react.css';
 
 export default function Home() {
   return (

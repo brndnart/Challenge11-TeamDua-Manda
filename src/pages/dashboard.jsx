@@ -1,5 +1,5 @@
 import React from 'react';
-import { Player } from 'video-react';
+import { Player, ControlBar } from 'video-react';
 import { Container } from "react-bootstrap";
 import Profile from "../components/Profile";
 import GameList from "../components/GameList";
@@ -11,7 +11,14 @@ export default function Dashboard() {
       <Player
       playsInline
       poster="/public/gunting.png"
-      src="https://www.youtube.com/watch?v=uji9mJuGLo8"/>
+      src="https://www.youtube.com/watch?v=uji9mJuGLo8"
+      >
+      <ControlBar autoHide={false} className="my-class" />
+
+      </Player> 
+
+
+
       <Container className="mt-5">
         <Nav />
         <div className="row">
