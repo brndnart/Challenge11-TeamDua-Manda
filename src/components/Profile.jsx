@@ -1,75 +1,77 @@
-import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
-import { useState } from "react";
-import { Modal, Button, Alert, OverlayTrigger, Tooltip } from "react-bootstrap";
-import Link from "next/link";
-import { useAuth } from "../context/Auth";
-import { storage } from "../services/firebase";
+/* eslint-disable no-useless-return */
+/* eslint-disable react/react-in-jsx-scope */
+import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage'
+import { useState } from 'react'
+import { Modal, Button, Alert, OverlayTrigger, Tooltip } from 'react-bootstrap'
+import Link from 'next/link'
+import { useAuth } from '../context/Auth'
+import { storage } from '../services/firebase'
 
-export default function Profile() {
-  const { currentUser, updatePhoto } = useAuth();
-  const [image, setImage] = useState();
-  const [showImgModal, setShowImgModal] = useState(false);
-  const [imageFile, setImageFile] = useState();
-  const [uploadProgress, setUploadprogress] = useState(0);
-  const [succes, setSuccess] = useState("");
-  const [loading, setLoading] = useState(false);
+export default function Profile () {
+  const { currentUser, updatePhoto } = useAuth()
+  const [image, setImage] = useState()
+  const [showImgModal, setShowImgModal] = useState(false)
+  const [imageFile, setImageFile] = useState()
+  const [uploadProgress, setUploadprogress] = useState(0)
+  const [succes, setSuccess] = useState('')
+  const [loading, setLoading] = useState(false)
 
-  const handleClose = () => setShowImgModal(false);
-  const handleShowImgModal = () => setShowImgModal(true);
+  const handleClose = () => setShowImgModal(false)
+  const handleShowImgModal = () => setShowImgModal(true)
 
-  function defaultPhoto() {
-    const userPhoto = ref(storage, "img/user.png");
+  function defaultPhoto () {
+    const userPhoto = ref(storage, 'img/user.png')
     getDownloadURL(userPhoto)
       .then((img) => {
-        setImage(img);
+        setImage(img)
       })
       .catch((error) => {
-        console.log(error);
-      });
+        console.log(error)
+      })
   }
 
-  function handleImageUpload(e) {
-    e.preventDefault();
-    const file = e.target.files[0];
-    setImageFile(file);
+  function handleImageUpload (e) {
+    e.preventDefault()
+    const file = e.target.files[0]
+    setImageFile(file)
   }
 
-  function handleImage() {
-    if (!imageFile) return;
+  function handleImage () {
+    if (!imageFile) return
 
-    const storageRef = ref(storage, `/img/${imageFile.name}`);
-    const uploadTask = uploadBytesResumable(storageRef, imageFile);
+    const storageRef = ref(storage, `/img/${imageFile.name}`)
+    const uploadTask = uploadBytesResumable(storageRef, imageFile)
 
     uploadTask.on(
-      "state_changed",
+      'state_changed',
       (snapshot) => {
-        setLoading(true);
+        setLoading(true)
         const progress = Math.round(
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
+        )
 
-        setUploadprogress(progress);
+        setUploadprogress(progress)
       },
       (err) => console.log(err),
       () => {
         getDownloadURL(uploadTask.snapshot.ref)
           .then((img) => {
-            setSuccess("");
-            updatePhoto(img);
-            setSuccess("Images changed successfully!");
+            setSuccess('')
+            updatePhoto(img)
+            setSuccess('Images changed successfully!')
             setTimeout(() => {
-              window.location.reload(false);
-            }, 1000);
-            return;
+              window.location.reload(false)
+            }, 1000)
+            return
           })
           .catch((error) => {
-            console.log(error);
-          });
+            console.log(error)
+          })
       }
-    );
+    )
   }
 
-  defaultPhoto();
+  defaultPhoto()
 
   return (
     <>
@@ -99,8 +101,8 @@ export default function Profile() {
         </Modal.Footer>
       </Modal>
 
-      <div className="mt-5">
-        <div className="row mt-5">
+      <div className="mt-1">
+        <div className="row mt-1">
           <div className="col p-5">
             <div className="text-center pb-3">
               <h3>User Profile</h3>
@@ -111,7 +113,8 @@ export default function Profile() {
                 placement="right"
                 overlay={<Tooltip>Click to update image</Tooltip>}
               >
-                {currentUser.photoURL ? (
+                {currentUser?.photoURL
+                  ? (
                   <img
                     src={currentUser.photoURL}
                     alt=""
@@ -119,7 +122,8 @@ export default function Profile() {
                     width="74.5"
                     onClick={handleShowImgModal}
                   />
-                ) : (
+                    )
+                  : (
                   <img
                     src={image}
                     alt=""
@@ -127,20 +131,20 @@ export default function Profile() {
                     width="70"
                     onClick={handleShowImgModal}
                   />
-                )}
+                    )}
               </OverlayTrigger>
             </div>
 
             <p>
-              <strong>UID</strong> : {currentUser.uid}
+              <strong>UID</strong> : {currentUser?.uid}
             </p>
-            {currentUser.displayName && (
+            {currentUser?.displayName && (
               <p>
-                <strong>Username</strong> : {currentUser.displayName}
+                <strong>Username</strong> : {currentUser?.displayName}
               </p>
             )}
             <p>
-              <strong>Email</strong> : {currentUser.email}
+              <strong>Email</strong> : {currentUser?.email}
             </p>
 
             <div className="text-center pt-4 d-grid">
@@ -152,5 +156,5 @@ export default function Profile() {
         </div>
       </div>
     </>
-  );
+  )
 }
