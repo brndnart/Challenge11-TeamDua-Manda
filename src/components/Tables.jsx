@@ -1,6 +1,8 @@
-import { Table } from "react-bootstrap";
+/* eslint-disable react/prop-types */
+/* eslint-disable react/react-in-jsx-scope */
+import { Table } from 'react-bootstrap'
 
-export default function Tables({ leaderboards }) {
+export default function Tables ({ leaderboards }) {
   return (
     <>
       <div className="row pt-5 pb-5">
@@ -31,5 +33,5 @@ export default function Tables({ leaderboards }) {
         </div>
       </div>
     </>
-  );
+  )
 }
