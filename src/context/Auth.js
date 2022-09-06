@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
@@ -13,7 +14,7 @@ import { auth } from "../services/firebase";
 const AuthContext = React.createContext();
 
 export function useAuth() {
-  return useContext(AuthContext);
+  return useContext(AuthContext)
 }
 
 export const Auth = ({ children }) => {

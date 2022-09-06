@@ -113,7 +113,7 @@ export default function Profile () {
                 placement="right"
                 overlay={<Tooltip>Click to update image</Tooltip>}
               >
-                {currentUser.photoURL ? (
+                {currentUser?.photoURL ? (
                   <img
                     src={currentUser.photoURL}
                     alt=""

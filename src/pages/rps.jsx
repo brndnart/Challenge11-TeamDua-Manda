@@ -5,7 +5,7 @@ import PdfFile from "../components/gameRules";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import Link from "next/link";
 
-export default function Rps() {
+export default function Rps () {
   return (
     <>
       <Container className="mt-5">

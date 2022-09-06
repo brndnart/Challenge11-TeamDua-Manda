@@ -20,7 +20,7 @@ export default function Handler() {
   const { currentUser } = useAuth();
   const [leaderboards, setLeaderboards] = useState([]);
 
-  function com() {
+  function com () {
     const choice = ["Rock", "Paper", "Scissors"];
     const randomChoice = Math.floor(Math.random() * 3);
     return choice[randomChoice];
