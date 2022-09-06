@@ -2,7 +2,7 @@ import { Container } from "react-bootstrap";
 import Nav from "../components/Nav";
 import Handler from "../components/Handler";
 
-export default function Rps() {
+export default function Rps () {
   return (
     <>
       <Container className="mt-5">
