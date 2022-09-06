@@ -112,7 +112,7 @@ export default function Profile() {
                 overlay={<Tooltip>Click to update image</Tooltip>}
               >
                 {currentUser.photoURL ? (
-                  <img
+                  <image
                     src={currentUser.photoURL}
                     alt=""
                     className="rounded-circle"
@@ -120,7 +120,7 @@ export default function Profile() {
                     onClick={handleShowImgModal}
                   />
                 ) : (
-                  <img
+                  <image
                     src={image}
                     alt=""
                     className="rounded"

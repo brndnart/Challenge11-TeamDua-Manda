@@ -109,6 +109,7 @@ export default function Handler() {
     }
   }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   async function updateTableLeaderboard() {
     const responses = await getLeaderBoards();
     setLeaderboards(responses);
@@ -119,7 +120,7 @@ export default function Handler() {
       await updateTableLeaderboard();
     }
     fetchData();
-  }, [leaderboards]);
+  }, [leaderboards, updateTableLeaderboard]);
 
   return (
     <>
