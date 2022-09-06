@@ -1,6 +1,5 @@
 /* eslint-disable */
 import Link from "next/link";
-import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 
 export default function Home() {
@@ -8,48 +7,55 @@ export default function Home() {
     <div
       className="d-flex vh-100"
       style={{
-        backgroundImage: "url(main-bg.jpg)",
+        backgroundImage: "url(RockPap.png)",
         backgroundRepeat: "no-repeat",
         backgroundSize: "contain",
         backgroundPosition: "center",
         backgroundColor: "#61481C",
       }}
     >
-      <Card
-        className="m-auto align-self-center"
-        style={{
-          width: "18rem",
-          backgroundColor: "#F2DF3A",
-          alignItems: "center",
-        }}
-      >
-        <Card.Header style={{ fontSize: "30px" }}>
-          <b>Home Page</b>
-        </Card.Header>
-        <Card.Body>
-          <Card.Title tag="h5">Play RPS</Card.Title>
-          <Card.Text>Please feel free to</Card.Text>
-          <Button variant="warning">
-            <Link
-              href="/login"
-              style={{ textDecoration: "none", color: "white" }}
-            >
-              Login
-            </Link>
+      <div>
+        <Link href="/login">
+          <Button
+            variant="warning"
+            style={{
+              textDecoration: "none",
+              color: "#3B2A0F",
+              fontFamily: "comic sans ms",
+              fontSize: "30px",
+              fontWeight: "bolder",
+              letterSpacing: "1px",
+              position: "fixed",
+              left: "45%",
+              top : "40%"
+            }}
+          >
+            login
           </Button>
-          <br />
-          <br />
-          <p>OR</p>
-          <Button variant="warning">
-            <Link
-              href="/register"
-              style={{ textDecoration: "none", color: "white" }}
-            >
-              Register
-            </Link>
+        </Link>
+      </div>
+      <br />
+      <br />
+      <div>
+        <Link href="/register">
+          <Button
+            variant="warning"
+            style={{
+              textDecoration: "none",
+              color: "#3B2A0F",
+              fontFamily: "comic sans ms",
+              fontSize: "30px",
+              fontWeight: "bolder",
+              letterSpacing: "1px",
+              position: "fixed",
+              left: "43%",
+              top : "50%"
+            }}
+          >
+            Register
           </Button>
-        </Card.Body>
-      </Card>
+        </Link>
+      </div>
     </div>
   );
 }
