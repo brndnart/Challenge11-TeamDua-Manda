@@ -1,4 +1,4 @@
-/* eslint-disable */
+
 import Link from 'next/link'
 import { Card } from 'react-bootstrap'
 import { Button } from 'react-bootstrap'
@@ -52,4 +52,5 @@ export default function Home() {
             </Card>
         </div>
     )
+
 }
