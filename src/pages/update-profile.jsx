@@ -71,13 +71,23 @@ export default function UpdateProfile() {
 
     return (
         <>
-            <Container className=' mt-5'>
+            <Container
+                className=' mt-5'
+                style={{
+                    background: '#54BAB9',
+                    borderRadius: '30px',
+                }}
+            >
                 <div
                     className='row justify-content-center align-items-center'
                     style={{ height: 700 }}
                 >
                     <div className='col-4'>
                         <Form
+                            style={{
+                                background: '#F7ECDE',
+                                borderColor: 'black',
+                            }}
                             onSubmit={handleSubmit}
                             className='border border-5 border-light rounded-3 p-5'
                         >
