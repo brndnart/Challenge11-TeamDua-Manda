@@ -71,7 +71,7 @@ export default function Login() {
                     <div className='col-4'>
                         <Form
                             style={{
-                                background: '#FDBE34',
+                                background: '#9ED2C6',
                             }}
                             onSubmit={handleSubmit}
                             className='border border-dark rounded-3 p-5'
