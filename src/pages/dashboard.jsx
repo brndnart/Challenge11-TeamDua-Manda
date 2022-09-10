@@ -9,11 +9,6 @@ export default function Dashboard() {
         <>
             <Container className='mt-3'>
                 <Nav />
-                <iframe
-                    width='1100'
-                    height='190'
-                    src='https://www.youtube.com/embed/uji9mJuGLo8'
-                ></iframe>
                 <div className='row'>
                     <div className='col-6'>
                         <Profile />
@@ -22,6 +17,12 @@ export default function Dashboard() {
                         <GameList />
                     </div>
                 </div>
+                <iframe
+                    style={{ position: 'relative', left: '2%', top: '80%' }}
+                    width='500'
+                    height='280'
+                    src='https://www.youtube.com/embed/uji9mJuGLo8'
+                ></iframe>
             </Container>
         </>
     )

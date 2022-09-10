@@ -1,19 +1,29 @@
-import { render, screen } from "@testing-library/react";
-import GameList from "../src/components/GameList";
-import "@testing-library/jest-dom";
+import { render, screen } from '@testing-library/react'
+import GameList from '../src/components/GameList'
+import '@testing-library/jest-dom'
 
-describe("Game List Component", () => {
-  it("renders game list component", () => {
-    render(<GameList />);
+describe('Game List', () => {
+    it('renders game list component', () => {
+        render(<GameList />)
 
-    const gameListTitle = screen.getByRole("heading", { name: /Game List/i });
-    const gameListImage = screen.getByRole("img", {
-      name: /rock paper scissors img/i,
-    });
-    const gameListButton = screen.getByRole("button", { name: /PLAY GAME/i });
+        expect(
+            screen.getByRole('heading', { name: /Game List/i })
+        ).toBeInTheDocument()
+    })
 
-    expect(gameListTitle).toBeInTheDocument();
-    expect(gameListImage).toBeInTheDocument();
-    expect(gameListButton).toBeInTheDocument();
-  });
-});
+    it('renders game list image', () => {
+        render(<GameList />)
+        expect(
+            screen.getByRole('img', {
+                name: /rock paper scissors img/i,
+            })
+        ).toBeInTheDocument()
+    })
+
+    it('renders game list button', () => {
+        render(<GameList />)
+        expect(
+            screen.getByRole('button', { name: /PLAY GAME/i })
+        ).toBeInTheDocument()
+    })
+})
